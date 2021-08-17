@@ -1,0 +1,14 @@
+*.pro.user*
+*.user*
+*/tmp/*
+*/.build/*
+*/build*/*
+*build*
+*~
+*.o
+.*
+__*
+*/SANDBOX/
+SANDBOX
+
+!/.gitignore

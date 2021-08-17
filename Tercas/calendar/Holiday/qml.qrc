@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file alias="HolidayDialog.qml">qml/HolidayDialog.qml</file>
+        <file alias="CalendarDialog.qml">qml/CalendarDialog.qml</file>
+        <file alias="MenuDialog.qml">qml/MenuDialog.qml</file>
+        <file>qml/YesNoDialog.qml</file>
+        <file>images/arrow.jpg</file>
+        <file>images/quit.png</file>
+        <file>qml/ListDelegate.qml</file>
+        <file>qml/SingleDelegate.qml</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>
