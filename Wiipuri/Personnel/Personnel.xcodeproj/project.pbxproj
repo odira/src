@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2764B2E26EF3E28005320B4 /* GeneralTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */; };
+		F2764B3026EF3FE1005320B4 /* AdmissionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */; };
 		F27E110226C46246009211CB /* PersonnelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110126C46246009211CB /* PersonnelApp.swift */; };
 		F27E110426C46246009211CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110326C46246009211CB /* ContentView.swift */; };
 		F27E110626C46246009211CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110526C46246009211CB /* Assets.xcassets */; };
 		F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110826C46246009211CB /* Preview Assets.xcassets */; };
 		F27E111226C462CD009211CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111126C462CD009211CB /* Person.swift */; };
-		F27E111426C46345009211CB /* PersonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111326C46345009211CB /* PersonDetailsView.swift */; };
+		F27E111426C46345009211CB /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111326C46345009211CB /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabView.swift; sourceTree = "<group>"; };
+		F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionsTabView.swift; sourceTree = "<group>"; };
 		F27E10FE26C46246009211CB /* Personnel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Personnel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27E110126C46246009211CB /* PersonnelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelApp.swift; sourceTree = "<group>"; };
 		F27E110326C46246009211CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,7 +27,7 @@
 		F27E110826C46246009211CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F27E110A26C46246009211CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27E111126C462CD009211CB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		F27E111326C46345009211CB /* PersonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsView.swift; sourceTree = "<group>"; };
+		F27E111326C46345009211CB /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2764B2926EF39F2005320B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2764B2A26EF3B29005320B4 /* Person */,
+				F27E110326C46246009211CB /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2764B2A26EF3B29005320B4 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				F27E111326C46345009211CB /* PersonView.swift */,
+				F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */,
+				F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
 		F27E10F526C46246009211CB = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +79,12 @@
 		F27E110026C46246009211CB /* Personnel */ = {
 			isa = PBXGroup;
 			children = (
+				F2764B2926EF39F2005320B4 /* Views */,
 				F27E111026C462B4009211CB /* Models */,
 				F27E110126C46246009211CB /* PersonnelApp.swift */,
-				F27E110326C46246009211CB /* ContentView.swift */,
 				F27E110526C46246009211CB /* Assets.xcassets */,
 				F27E110A26C46246009211CB /* Info.plist */,
 				F27E110726C46246009211CB /* Preview Content */,
-				F27E111326C46345009211CB /* PersonDetailsView.swift */,
 			);
 			path = Personnel;
 			sourceTree = "<group>";
@@ -152,9 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2764B3026EF3FE1005320B4 /* AdmissionsTabView.swift in Sources */,
+				F2764B2E26EF3E28005320B4 /* GeneralTabView.swift in Sources */,
 				F27E111226C462CD009211CB /* Person.swift in Sources */,
 				F27E110426C46246009211CB /* ContentView.swift in Sources */,
-				F27E111426C46345009211CB /* PersonDetailsView.swift in Sources */,
+				F27E111426C46345009211CB /* PersonView.swift in Sources */,
 				F27E110226C46246009211CB /* PersonnelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

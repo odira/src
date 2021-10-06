@@ -11,7 +11,6 @@ struct ContentView: View {
             }
             .navigationTitle("Список сотрудников")
         }
-        
     }
 }
 
@@ -20,7 +19,7 @@ struct PersonCell: View {
     var person: Person
     
     var body: some View {
-        NavigationLink(destination: PersonDetailsView(person: person)) {
+        NavigationLink(destination: PersonView(person: person)) {
             Image(person.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

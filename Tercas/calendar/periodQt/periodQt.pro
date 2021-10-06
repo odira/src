@@ -1,5 +1,5 @@
 QT += core gui widgets sql
-QT += core5compat
+#QT += core5compat
 CONFIG += vyborg release sdk_no_version_check
 TEMPLATE = app
 TARGET = periodQt

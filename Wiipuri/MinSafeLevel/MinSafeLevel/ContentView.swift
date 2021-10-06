@@ -1,58 +1,61 @@
-//
-//  ContentView.swift
-//  MinSafeLevel
-//
-//  Created by Владимир Ильин on 24.05.2021.
-//
-
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    @State private var minPressureACC: String = ""
+    @State private var minSafeLevelACC: String = "---"
+    @State private var buttonIsValid = false
     
-    @State private var minSafeLevelACC: Int = 0
-    @State private var minPressureACC: Int = 0
-    @State private var transitionLevelAPP: Int = 0
-    @State private var pressureUUWW: Int = 0
-    
-    let pressureFormatter: NumberFormatter = {
-        let pressureFormatter = NumberFormatter()
-        pressureFormatter.numberStyle = .none
-        return pressureFormatter
-    }()
+//    let pressureFormatter: NumberFormatter = {
+//        let pressureFormatter = NumberFormatter()
+//        pressureFormatter.numberStyle = .none
+//        return pressureFormatter
+//    }()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section(header: Text("ACC Minimum Safe Level")) {
-//                        TextField("ACC Minimum Safe Level", text: "\(minSafeLevelACC)")
-//                        TextField("Minimum QNH en-route", text: "\(minPressureACC)")
-                        Text("ACC Minimum Safe Level \(minSafeLevelACC)")
-                        Text("Minimum QNH en-route \(minPressureACC)")
-                    }
-                    
-                    Section(header: Text("APP Transition Level")) {
-//                        TextField("APP Transition Level", text: "\(transitionLevelAPP)")
-//                        TextField("QNH UUWW", text: "\(pressureUUWW)")
-                        Text("APP Transition Level \(transitionLevelAPP)")
-                        Text("QNH UUWW \(pressureUUWW)")
-                    }
-                }
-
-                Button(action: {
-                    minSafeLevelACC = 100
-                }) {
-                    Text("Calculate")
-                        .font(.body)
-                    Image(systemName: "star")
-                }
-                .foregroundColor(.white)
-                .padding(.all)
-                .background(Color.green)
-                .cornerRadius(16)
+        VStack {
+            Text("ACC Minimum Safe Level")
+                .font(.largeTitle)
+            HStack {
+                Text("FL")
+                    .font(.largeTitle)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                Text("\(minSafeLevelACC)")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .tracking(10)
             }
-            .navigationTitle("Minimum Safe Level")
+            .padding()
+            TextField("Enter minimum pressure here", text: $minPressureACC)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .border(.black)
+                .padding()
+                .keyboardType(.numberPad)
+                .onReceive(Just(minPressureACC)) { newPressure in
+                    let filtered = newPressure.filter { "0123456789".contains($0) }
+                    if filtered != newPressure {
+                        self.minPressureACC = filtered
+                    }
+                }
+            Button(action: {
+                let pressure = Double(self.minPressureACC)!
+                if pressure < 977.3 {
+                    minSafeLevelACC = "080"
+                } else if pressure < 999.9 {
+                    minSafeLevelACC = "070"
+                } else {
+                    minSafeLevelACC = "060"
+                }
+            }) {
+                Text("Calculate MSL")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(15)
+            }.disabled(!buttonIsValid)
         }
+        .padding()
     }
 }
 
