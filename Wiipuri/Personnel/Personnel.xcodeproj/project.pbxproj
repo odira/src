@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F2764B2E26EF3E28005320B4 /* GeneralTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */; };
-		F2764B3026EF3FE1005320B4 /* AdmissionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */; };
+		F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D49D2726E81400AE30B9 /* PersonDetail.swift */; };
+		F279D4A22726ED9600AE30B9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A12726ED9600AE30B9 /* CircleImage.swift */; };
+		F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A32726F2C700AE30B9 /* ModelData.swift */; };
+		F279D4A62726F8EE00AE30B9 /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A52726F8EE00AE30B9 /* PersonRow.swift */; };
+		F279D4B22727329400AE30B9 /* PersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4B12727329400AE30B9 /* PersonList.swift */; };
 		F27E110226C46246009211CB /* PersonnelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110126C46246009211CB /* PersonnelApp.swift */; };
 		F27E110426C46246009211CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110326C46246009211CB /* ContentView.swift */; };
 		F27E110626C46246009211CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110526C46246009211CB /* Assets.xcassets */; };
 		F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110826C46246009211CB /* Preview Assets.xcassets */; };
 		F27E111226C462CD009211CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111126C462CD009211CB /* Person.swift */; };
-		F27E111426C46345009211CB /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111326C46345009211CB /* PersonView.swift */; };
+		F286FC0E2729E64000D56C5F /* personData.json in Resources */ = {isa = PBXBuildFile; fileRef = F286FC0D2729E64000D56C5F /* personData.json */; };
+		F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A31858273168CC0082EEFD /* SearchSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabView.swift; sourceTree = "<group>"; };
-		F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionsTabView.swift; sourceTree = "<group>"; };
+		F279D49D2726E81400AE30B9 /* PersonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetail.swift; sourceTree = "<group>"; };
+		F279D4A12726ED9600AE30B9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		F279D4A32726F2C700AE30B9 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		F279D4A52726F8EE00AE30B9 /* PersonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
+		F279D4B12727329400AE30B9 /* PersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonList.swift; sourceTree = "<group>"; };
 		F27E10FE26C46246009211CB /* Personnel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Personnel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27E110126C46246009211CB /* PersonnelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelApp.swift; sourceTree = "<group>"; };
 		F27E110326C46246009211CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,7 +34,8 @@
 		F27E110826C46246009211CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F27E110A26C46246009211CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27E111126C462CD009211CB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		F27E111326C46345009211CB /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		F286FC0D2729E64000D56C5F /* personData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = personData.json; path = ../personData.json; sourceTree = "<group>"; };
+		F2A31858273168CC0082EEFD /* SearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +52,8 @@
 		F2764B2926EF39F2005320B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F2764B2A26EF3B29005320B4 /* Person */,
 				F27E110326C46246009211CB /* ContentView.swift */,
+				F2764B2A26EF3B29005320B4 /* Person */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -53,11 +61,21 @@
 		F2764B2A26EF3B29005320B4 /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				F27E111326C46345009211CB /* PersonView.swift */,
-				F2764B2D26EF3E28005320B4 /* GeneralTabView.swift */,
-				F2764B2F26EF3FE1005320B4 /* AdmissionsTabView.swift */,
+				F279D49D2726E81400AE30B9 /* PersonDetail.swift */,
+				F279D4A12726ED9600AE30B9 /* CircleImage.swift */,
+				F279D4A52726F8EE00AE30B9 /* PersonRow.swift */,
+				F279D4B12727329400AE30B9 /* PersonList.swift */,
+				F2A31858273168CC0082EEFD /* SearchSheet.swift */,
 			);
 			path = Person;
+			sourceTree = "<group>";
+		};
+		F279D49A2726E58000AE30B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F286FC0D2729E64000D56C5F /* personData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F27E10F526C46246009211CB = {
@@ -79,6 +97,7 @@
 		F27E110026C46246009211CB /* Personnel */ = {
 			isa = PBXGroup;
 			children = (
+				F279D49A2726E58000AE30B9 /* Resources */,
 				F2764B2926EF39F2005320B4 /* Views */,
 				F27E111026C462B4009211CB /* Models */,
 				F27E110126C46246009211CB /* PersonnelApp.swift */,
@@ -101,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F27E111126C462CD009211CB /* Person.swift */,
+				F279D4A32726F2C700AE30B9 /* ModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +184,7 @@
 			files = (
 				F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */,
 				F27E110626C46246009211CB /* Assets.xcassets in Resources */,
+				F286FC0E2729E64000D56C5F /* personData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,12 +195,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2764B3026EF3FE1005320B4 /* AdmissionsTabView.swift in Sources */,
-				F2764B2E26EF3E28005320B4 /* GeneralTabView.swift in Sources */,
+				F279D4A22726ED9600AE30B9 /* CircleImage.swift in Sources */,
+				F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */,
+				F279D4A62726F8EE00AE30B9 /* PersonRow.swift in Sources */,
 				F27E111226C462CD009211CB /* Person.swift in Sources */,
 				F27E110426C46246009211CB /* ContentView.swift in Sources */,
-				F27E111426C46345009211CB /* PersonView.swift in Sources */,
 				F27E110226C46246009211CB /* PersonnelApp.swift in Sources */,
+				F279D4B22727329400AE30B9 /* PersonList.swift in Sources */,
+				F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */,
+				F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +336,7 @@
 				DEVELOPMENT_TEAM = 2RLLV54K2J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Personnel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +358,7 @@
 				DEVELOPMENT_TEAM = 2RLLV54K2J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Personnel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

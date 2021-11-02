@@ -1,31 +1,74 @@
+import Foundation
 import SwiftUI
 
-struct Person: Identifiable {
-    let id = UUID()
-    let surname: String
-    let name: String
-    let middleName: String
-    let birthday: String
-    let imageName: String
+struct Person: Hashable, Codable, Identifiable {
+    var id: Int
+    var valid: Bool?
+    var surname: String
+    var name: String
+    var middleName: String
+    var birthday: Date?
+    var mobilePhone: Int?
+    var email: String?
+    var tabNum: Int?
+    var position: String?
+    var klass: Int?
+    var shiftNum: Int?
+    var note: String?
     
+    private var sex: String?
+    var sexString: String {
+        if sex == "m" {
+            return String("муж")
+        } else if sex == "f" {
+            return String("жен")
+        } else {
+            return String("N/A")
+        }
+    }
+    
+    var sexColor: Color {
+        if sex == "m" {
+            return Color.blue
+        } else if sex == "f" {
+            return Color.purple
+        } else {
+            return Color.white
+        }
+    }
+    
+    private var imageName: String?
+    var image: Image {
+        if imageName != nil {
+            return Image(imageName!)
+        } else {
+            return Image("nophoto")
+        }
+    }
 }
 
-struct PersonList {
-    static let persons = [
-        Person(surname: "Аверкин", name: "Анатолий", middleName: "Вячеславович",
-               birthday: "25.10.1969",
-               imageName: "Аверкин"),
-        Person(surname: "Аверкин", name: "Вячеслав", middleName: "Анатольевич",
-               birthday: "10.09.1995",
-               imageName: "Аверкин2"),
-        Person(surname: "Агапов", name: "Павел", middleName: "Николаевич",
-               birthday: "23.10.1990",
-               imageName: "Агапов"),
-        Person(surname: "Акимов", name: "Алексей", middleName: "Николаевич",
-               birthday: "20.11.1980",
-               imageName: "Акимов"),
-        Person(surname: "Алексеев", name: "Виктор", middleName: "Валерьевич",
-               birthday: "26.06.1985",
-               imageName: "Алексеев"),
-    ]
+extension Person {
+    var tabNumString: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        formatter.groupingSeparator = ""
+        
+        let number = NSNumber(value: tabNum!)
+        return formatter.string(from: number)!
+    }
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ""
+        formatter.numberStyle = .none
+        return formatter
+    }()
+}
+
+extension Int {
+    var formattedWithSeparator: String {
+        return Formatter.withSeparator.string(for: self) ?? ""
+    }
 }
