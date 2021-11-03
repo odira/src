@@ -41,8 +41,8 @@ struct PersonList: View {
             return persons.filter { person in
 //                ($0.shiftNum == shiftNum && $0.surname.contains(searchText))
 //                let plist = (person.shiftNum == shiftNum && person.surname.contains(searchText))
-                let plist = (person.shiftNum == shiftNum && person.surname.contains(surname))
-                return plist
+                let searchPersons = (person.shiftNum == shiftNum && person.surname.contains(surname))
+                return searchPersons
             }
         }
     }

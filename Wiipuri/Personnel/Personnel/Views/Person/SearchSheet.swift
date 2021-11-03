@@ -28,19 +28,23 @@ struct SearchSheet: View {
             }
             
             HStack {
-                Button("Search") {
+                Button(role: .none, action: {
                     dismiss()
-                }
-                .font(.title)
-                .padding()
-                .background(.green)
+                }, label: {
+                    Text("Search")
+                        .frame(maxWidth: .infinity)
+                })
+                    .buttonStyle(.bordered)
+                    .tint(.green)
                 
-                Button("Close") {
+                Button(role: .destructive, action: {
                     dismiss()
-                }
-                .font(.title)
-                .padding()
-                .background(.red)
+                }, label: {
+                    Text("Close")
+                        .frame(maxWidth: .infinity)
+                })
+                    .buttonStyle(.bordered)
+                    .tint(.red)
             }
             .padding()
         }
