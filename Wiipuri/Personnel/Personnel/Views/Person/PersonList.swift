@@ -4,6 +4,7 @@ struct PersonList: View {
     @State private var searchText = ""
     @State private var showingSheet = false
     
+    @State var surname: String = ""
     @State var shiftNum: Int = 1
     
     var body: some View {
@@ -26,7 +27,9 @@ struct PersonList: View {
                 }
             }
             .sheet(isPresented: $showingSheet) {
-                SearchSheet(selectedShift: $shiftNum)
+                SearchSheet(surname: $surname,
+                            shiftNum: $shiftNum
+                )
             }
         }
     }
@@ -37,7 +40,8 @@ struct PersonList: View {
         } else {
             return persons.filter { person in
 //                ($0.shiftNum == shiftNum && $0.surname.contains(searchText))
-                let plist = (person.shiftNum == shiftNum && person.surname.contains(searchText))
+//                let plist = (person.shiftNum == shiftNum && person.surname.contains(searchText))
+                let plist = (person.shiftNum == shiftNum && person.surname.contains(surname))
                 return plist
             }
         }
