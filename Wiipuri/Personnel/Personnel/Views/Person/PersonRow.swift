@@ -7,7 +7,7 @@ struct PersonRow: View {
         HStack {
             CircleImage(person: person)
                 .frame(width: 50, height: 50)
-                .padding(10)
+                .padding(5)
             
             VStack(alignment: .leading) {
                 Text(person.surname)

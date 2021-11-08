@@ -17,8 +17,8 @@
 		F27E110626C46246009211CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110526C46246009211CB /* Assets.xcassets */; };
 		F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110826C46246009211CB /* Preview Assets.xcassets */; };
 		F27E111226C462CD009211CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111126C462CD009211CB /* Person.swift */; };
-		F286FC0E2729E64000D56C5F /* personData.json in Resources */ = {isa = PBXBuildFile; fileRef = F286FC0D2729E64000D56C5F /* personData.json */; };
 		F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A31858273168CC0082EEFD /* SearchSheet.swift */; };
+		F2B4FB4B2739C81E00DD26BD /* personData.json in Resources */ = {isa = PBXBuildFile; fileRef = F2B4FB4A2739C81E00DD26BD /* personData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		F27E110826C46246009211CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F27E110A26C46246009211CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27E111126C462CD009211CB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		F286FC0D2729E64000D56C5F /* personData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = personData.json; path = ../personData.json; sourceTree = "<group>"; };
 		F2A31858273168CC0082EEFD /* SearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSheet.swift; sourceTree = "<group>"; };
+		F2B4FB4A2739C81E00DD26BD /* personData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,6 @@
 		F279D49A2726E58000AE30B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F286FC0D2729E64000D56C5F /* personData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -97,6 +96,7 @@
 		F27E110026C46246009211CB /* Personnel */ = {
 			isa = PBXGroup;
 			children = (
+				F2B4FB4A2739C81E00DD26BD /* personData.json */,
 				F279D49A2726E58000AE30B9 /* Resources */,
 				F2764B2926EF39F2005320B4 /* Views */,
 				F27E111026C462B4009211CB /* Models */,
@@ -141,6 +141,8 @@
 			dependencies = (
 			);
 			name = Personnel;
+			packageProductDependencies = (
+			);
 			productName = Personnel;
 			productReference = F27E10FE26C46246009211CB /* Personnel.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +170,8 @@
 				Base,
 			);
 			mainGroup = F27E10F526C46246009211CB;
+			packageReferences = (
+			);
 			productRefGroup = F27E10FF26C46246009211CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,7 +188,7 @@
 			files = (
 				F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */,
 				F27E110626C46246009211CB /* Assets.xcassets in Resources */,
-				F286FC0E2729E64000D56C5F /* personData.json in Resources */,
+				F2B4FB4B2739C81E00DD26BD /* personData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

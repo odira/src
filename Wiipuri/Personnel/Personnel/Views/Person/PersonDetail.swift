@@ -54,17 +54,17 @@ struct PersonDetail: View {
                     }
                     HStack {
                         Text("Дата рождения:")
-                        Text(person.birthday!, style: .date)
+                        Text(person.birthDate)
                     }
                 }
                 
                 Divider()
                 
                 VStack(alignment: .leading) {
-                    if person.mobilePhone != nil {
-                        Text("Mobile phone \(person.mobilePhone!)")
-                    } else {
-                        Text("No mobile phone number")
+                    HStack {
+                        Image(systemName: "phone.fill")
+                            .foregroundColor(.green)
+                        Text("Mobile phone \(person.phoneNumber)")
                     }
                     
                     if person.email != nil {

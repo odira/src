@@ -7,7 +7,7 @@ struct Person: Hashable, Codable, Identifiable {
     var surname: String
     var name: String
     var middleName: String
-    var birthday: Date?
+    var birthday: String?
     var mobilePhone: Int?
     var email: String?
     var tabNum: Int?
@@ -15,6 +15,21 @@ struct Person: Hashable, Codable, Identifiable {
     var klass: Int?
     var shiftNum: Int?
     var note: String?
+    
+    var birthDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let date = dateFormatter.date(from: birthday!) ?? Date()
+        
+        let newFormatter = DateFormatter()
+        newFormatter.dateFormat = "dd MMMM yyyy"
+        
+        return newFormatter.string(from: date)
+    }
+    
+    var phoneNumber: String {
+        String(mobilePhone!)
+    }
     
     private var sex: String?
     var sexString: String {
