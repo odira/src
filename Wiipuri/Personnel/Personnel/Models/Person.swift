@@ -27,10 +27,6 @@ struct Person: Hashable, Codable, Identifiable {
         return newFormatter.string(from: date)
     }
     
-    var phoneNumber: String {
-        String(mobilePhone!)
-    }
-    
     private var sex: String?
     var sexString: String {
         if sex == "m" {
@@ -70,6 +66,49 @@ extension Person {
         
         let number = NSNumber(value: tabNum!)
         return formatter.string(from: number)!
+    }
+}
+
+extension Person {
+    var phoneNumber: String {
+        let phone = String(mobilePhone!)
+        if phone.isEmpty {
+            return "Mobile phone N/A "
+        }
+        
+        var output = "+7 ("
+        
+        var index = phone.index(phone.startIndex, offsetBy: 0)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 1)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 2)
+        output = output + String(phone[index]) + ") "
+        
+        index = phone.index(phone.startIndex, offsetBy: 3)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 4)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 5)
+        output = output + String(phone[index]) + " "
+        
+        index = phone.index(phone.startIndex, offsetBy: 6)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 7)
+        output = output + String(phone[index]) + " "
+        
+        index = phone.index(phone.startIndex, offsetBy: 8)
+        output = output + String(phone[index])
+        
+        index = phone.index(phone.startIndex, offsetBy: 9)
+        output = output + String(phone[index])
+
+        return output
     }
 }
 

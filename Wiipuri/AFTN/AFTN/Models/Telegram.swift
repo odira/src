@@ -13,8 +13,9 @@ struct Telegram: Identifiable {
 }
 
 let telegramsList = [
-    Telegram(title: "AFIL"),
+    Telegram(title: "ALR"),
     Telegram(title: "ALD"),
-    Telegram(title: "ALR")
+    Telegram(title: "FLA"),
+    Telegram(title: "AFIL"),
 ]
 

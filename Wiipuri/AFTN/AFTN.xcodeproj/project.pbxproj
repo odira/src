@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28CCDD622733460800A40DAC /* PRAPI.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28CCDD612733460800A40DAC /* PRAPI.pdf */; };
 		F2F1097926B08B7900F67E0B /* AFTNApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F1097826B08B7900F67E0B /* AFTNApp.swift */; };
 		F2F1097B26B08B7900F67E0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F1097A26B08B7900F67E0B /* ContentView.swift */; };
 		F2F1097D26B08B7A00F67E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2F1097C26B08B7A00F67E0B /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28CCDD612733460800A40DAC /* PRAPI.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PRAPI.pdf; sourceTree = "<group>"; };
 		F2F1097526B08B7900F67E0B /* AFTN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFTN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F1097826B08B7900F67E0B /* AFTNApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTNApp.swift; sourceTree = "<group>"; };
 		F2F1097A26B08B7900F67E0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		F2F1097726B08B7900F67E0B /* AFTN */ = {
 			isa = PBXGroup;
 			children = (
-				F2F1099126B09D2500F67E0B /* Files */,
+				F2F1099126B09D2500F67E0B /* Resources */,
 				F2F1098A26B08F9E00F67E0B /* Views */,
 				F2F1098926B08DA000F67E0B /* Models */,
 				F2F1097826B08B7900F67E0B /* AFTNApp.swift */,
@@ -100,12 +102,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F2F1099126B09D2500F67E0B /* Files */ = {
+		F2F1099126B09D2500F67E0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				28CCDD612733460800A40DAC /* PRAPI.pdf */,
 				F2F1099526B0ACA400F67E0B /* 13.pdf */,
 			);
-			path = Files;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F1098026B08B7A00F67E0B /* Preview Assets.xcassets in Resources */,
+				28CCDD622733460800A40DAC /* PRAPI.pdf in Resources */,
 				F2F1097D26B08B7A00F67E0B /* Assets.xcassets in Resources */,
 				F2F1099626B0ACA400F67E0B /* 13.pdf in Resources */,
 			);

@@ -67,10 +67,14 @@ struct PersonDetail: View {
                         Text("Mobile phone \(person.phoneNumber)")
                     }
                     
-                    if person.email != nil {
-                        Text(person.email!)
-                    } else {
-                        Text("No email")
+                    HStack {
+                        Image(systemName: "envelope.fill")
+                            .foregroundColor(.blue)
+                        if person.email != nil {
+                            Text(person.email!)
+                        } else {
+                            Text("No email")
+                        }
                     }
                 }
                 
