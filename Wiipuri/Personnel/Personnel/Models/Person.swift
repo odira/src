@@ -16,17 +16,6 @@ struct Person: Hashable, Codable, Identifiable {
     var shiftNum: Int?
     var note: String?
     
-    var birthDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let date = dateFormatter.date(from: birthday!) ?? Date()
-        
-        let newFormatter = DateFormatter()
-        newFormatter.dateFormat = "dd MMMM yyyy"
-        
-        return newFormatter.string(from: date)
-    }
-    
     private var sex: String?
     var sexString: String {
         if sex == "m" {
@@ -55,6 +44,34 @@ struct Person: Hashable, Codable, Identifiable {
         } else {
             return Image("nophoto")
         }
+    }
+}
+
+extension Person {
+    var birthDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let date = dateFormatter.date(from: birthday!) ?? Date()
+        
+        let newFormatter = DateFormatter()
+        newFormatter.dateFormat = "dd MMMM yyyy"
+        
+        return newFormatter.string(from: date)
+    }
+}
+
+extension Person {
+    var age: Int? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let date1 = dateFormatter.date(from: birthday!) ?? Date()
+       
+        let calendar = Calendar.current
+        let startdate = calendar.startOfDay(for: date1)
+        let enddate = calendar.startOfDay(for: Date())
+        
+        let components = calendar.dateComponents([.year], from: startdate, to: enddate)
+        return components.year
     }
 }
 
