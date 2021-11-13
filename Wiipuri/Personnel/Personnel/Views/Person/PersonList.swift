@@ -5,7 +5,7 @@ struct PersonList: View {
     @State private var showingSheet = false
     
     @State var surname: String = ""
-    @State var shiftNum: Int = 1
+    @State var shiftNum: Int = 0
     
     var body: some View {
         NavigationView {
@@ -38,13 +38,15 @@ struct PersonList: View {
         if searchText.isEmpty {
             return persons
         } else {
-            return persons.filter { person in
-//                ($0.shiftNum == shiftNum && $0.surname.contains(searchText))
-//                let plist = (person.shiftNum == shiftNum && person.surname.contains(searchText))
-                let searchPersons = (person.shiftNum == shiftNum && person.surname.contains(surname))
-                return searchPersons
-            }
+            return persons.filter { $0.surname.contains(searchText) }
         }
+//        else {
+//            if shiftNum == 0 {
+//                return persons.filter { $0.surname.contains(searchText) }
+//            } else {
+//                return persons.filter { $0.shiftNum == shiftNum && $0.surname.contains(surname) }
+//            }
+//        }
     }
 }
 
