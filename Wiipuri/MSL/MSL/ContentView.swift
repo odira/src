@@ -77,27 +77,25 @@ struct ContentView: View {
             }
             .padding()
             .tabItem {
-                Image(systemName: "keyboard.fill")
+                Image(systemName: "house.fill")
                 Text("MSL")
             }
             
             VStack {
-                
+                Image("AIP")
+                    .resizable()
+                    .scaledToFit()
             }
             .tabItem {
                 Image(systemName: "book.closed.fill")
                 Text("AIP")
             }
             
-            VStack {
-                Image("20201203 МДП")
-                    .resizable()
-                    .scaledToFit()
-            }
-            .tabItem {
-                Image(systemName: "map.fill")
-                Text("Map")
-            }
+            MapView()
+                .tabItem {
+                    Image(systemName: "map.fill")
+                    Text("Map")
+                }
         }
     }
 }
