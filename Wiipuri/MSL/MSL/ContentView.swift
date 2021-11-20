@@ -2,8 +2,8 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @State private var pressureACC: String = ""
-    @State private var minSafeLevelACC: String = ""
+    @State private var pressureACC: Double = 0
+    @State private var minSafeLevelACC: Int = 0
     @State private var buttonIsValid = false
     
     enum Focus: Hashable {
@@ -22,7 +22,7 @@ struct ContentView: View {
             VStack(spacing: 20) {
                 Text("ACC Minimum Safe Level")
                     .font(.title)
-                Text("FL \(minSafeLevelACC)")
+                Text(minSafeLevelACC, format: .number)
                     .bold()
                     .frame(maxWidth: .infinity)
                     .font(.title)
@@ -34,7 +34,7 @@ struct ContentView: View {
                     )
                 Text("Minimum Pressure")
                     .font(.title)
-                TextField("Enter minimum pressure here", text: $pressureACC)
+                TextField("Enter minimum pressure here", value: $pressureACC, format: .number)
                     .font(.title)
                     .padding()
                     .overlay(
@@ -43,24 +43,25 @@ struct ContentView: View {
                     )
                     .keyboardType(.numberPad)
                     .onReceive(Just(pressureACC)) { pressure in
-                        let filtered = pressure.filter { "0123456789".contains($0) }
-                        print(filtered)
-                        if filtered != pressure {
-                            self.pressureACC = filtered
-                        }
+//                        let filtered = pressure.filter { "0123456789".contains($0) }
+                        let filtered = pressure
+//                        if filtered != pressure {
+//                            self.pressureACC = filtered
+//                        }
+                        self.pressureACC = filtered
                     }
                     .onAppear {
                         isFocused = .focused
                     }
                     .focused($isFocused, equals: .focused)
                 Button(action: {
-                    let pressure = Double(self.pressureACC)!
+                    let pressure = Double(self.pressureACC)
                     if pressure < 977.3 {
-                        minSafeLevelACC = "080"
+                        minSafeLevelACC = 80
                     } else if pressure < 999.9 {
-                        minSafeLevelACC = "070"
+                        minSafeLevelACC = 70
                     } else {
-                        minSafeLevelACC = "060"
+                        minSafeLevelACC = 60
                     }
                 }, label: {
                     HStack {
