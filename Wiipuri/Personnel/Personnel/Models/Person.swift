@@ -7,7 +7,7 @@ struct Person: Hashable, Identifiable {
     var surname: String
     var name: String
     var middleName: String
-    var birthday: String?
+    var birthday: Date?
     var mobilePhone: Int?
     var email: String?
     var tabNum: Int?
@@ -49,29 +49,30 @@ struct Person: Hashable, Identifiable {
 
 extension Person {
     var birthDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let date = dateFormatter.date(from: birthday!) ?? Date()
-        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy/MM/dd"
+//        let date = dateFormatter.date(from: birthday.to) ?? Date()
+
         let newFormatter = DateFormatter()
         newFormatter.dateFormat = "dd MMMM yyyy"
-        
-        return newFormatter.string(from: date)
+
+        return newFormatter.string(from: birthday!)
     }
 }
 
 extension Person {
     var age: Int? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let date1 = dateFormatter.date(from: birthday!) ?? Date()
-       
-        let calendar = Calendar.current
-        let startdate = calendar.startOfDay(for: date1)
-        let enddate = calendar.startOfDay(for: Date())
-        
-        let components = calendar.dateComponents([.year], from: startdate, to: enddate)
-        return components.year
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy/MM/dd"
+//        let date1 = dateFormatter.date(from: birthday!) ?? Date()
+//
+//        let calendar = Calendar.current
+//        let startdate = calendar.startOfDay(for: date1)
+//        let enddate = calendar.startOfDay(for: Date())
+//
+//        let components = calendar.dateComponents([.year], from: startdate, to: enddate)
+//        return components.year
+        return 100
     }
 }
 

@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    var model = PsqlModel()
-    
     var body: some View {
         PersonList()
     }
