@@ -1,22 +1,24 @@
 import Foundation
 import SwiftUI
+import PostgresClientKit
 
-struct Person: Hashable, Identifiable {
+struct Person: Identifiable {
     var id: UUID? = UUID()
     var valid: Bool?
     var surname: String
     var name: String
     var middleName: String
-    var birthday: Date?
+    var sex: String?
+    var birthday: PostgresDate?
     var mobilePhone: Int?
     var email: String?
     var tabNum: Int?
     var position: String?
     var klass: Int?
     var shiftNum: Int?
+    var sectorsPool: String?
     var note: String?
     
-    var sex: String?
     var sexString: String {
         if sex == "m" {
             return String("муж")
@@ -49,30 +51,28 @@ struct Person: Hashable, Identifiable {
 
 extension Person {
     var birthDate: String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy/MM/dd"
-//        let date = dateFormatter.date(from: birthday.to) ?? Date()
-
-        let newFormatter = DateFormatter()
-        newFormatter.dateFormat = "dd MMMM yyyy"
-
-        return newFormatter.string(from: birthday!)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        
+        /// The UTC/GMT time zone.
+        let utcTimeZone = TimeZone(secondsFromGMT: 0)!
+        
+        return formatter.string(from: birthday!.date(in: utcTimeZone))
     }
 }
 
 extension Person {
-    var age: Int? {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy/MM/dd"
-//        let date1 = dateFormatter.date(from: birthday!) ?? Date()
-//
-//        let calendar = Calendar.current
-//        let startdate = calendar.startOfDay(for: date1)
-//        let enddate = calendar.startOfDay(for: Date())
-//
-//        let components = calendar.dateComponents([.year], from: startdate, to: enddate)
-//        return components.year
-        return 100
+    var age: Int? {        
+        /// The UTC/GMT time zone.
+        let utcTimeZone = TimeZone(secondsFromGMT: 0)!
+        let date1 = birthday!.date(in: utcTimeZone)
+
+        let calendar = Calendar.current
+        let startdate = calendar.startOfDay(for: date1)
+        let enddate = calendar.startOfDay(for: Date())
+
+        let components = calendar.dateComponents([.year], from: startdate, to: enddate)
+        return components.year
     }
 }
 

@@ -10,7 +10,7 @@ struct PersonList: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(filteredPersons, id: \.self) { person in
+                ForEach(filteredPersons) { person in
                     NavigationLink(destination: PersonDetail(person: person)) {
                         PersonRow(person: person)
                     }
