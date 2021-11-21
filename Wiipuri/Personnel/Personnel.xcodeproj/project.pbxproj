@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28DD0F17274973FA00850BB4 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 28DD0F16274973FA00850BB4 /* PostgresClientKit */; };
+		28DD0F192749749C00850BB4 /* PsqlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0F182749749C00850BB4 /* PsqlModel.swift */; };
 		F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D49D2726E81400AE30B9 /* PersonDetail.swift */; };
 		F279D4A22726ED9600AE30B9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A12726ED9600AE30B9 /* CircleImage.swift */; };
 		F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A32726F2C700AE30B9 /* ModelData.swift */; };
@@ -22,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28DD0F182749749C00850BB4 /* PsqlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsqlModel.swift; sourceTree = "<group>"; };
 		F279D49D2726E81400AE30B9 /* PersonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetail.swift; sourceTree = "<group>"; };
 		F279D4A12726ED9600AE30B9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		F279D4A32726F2C700AE30B9 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DD0F17274973FA00850BB4 /* PostgresClientKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +125,7 @@
 			children = (
 				F27E111126C462CD009211CB /* Person.swift */,
 				F279D4A32726F2C700AE30B9 /* ModelData.swift */,
+				28DD0F182749749C00850BB4 /* PsqlModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			);
 			name = Personnel;
 			packageProductDependencies = (
+				28DD0F16274973FA00850BB4 /* PostgresClientKit */,
 			);
 			productName = Personnel;
 			productReference = F27E10FE26C46246009211CB /* Personnel.app */;
@@ -171,6 +177,7 @@
 			);
 			mainGroup = F27E10F526C46246009211CB;
 			packageReferences = (
+				28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */,
 			);
 			productRefGroup = F27E10FF26C46246009211CB /* Products */;
 			projectDirPath = "";
@@ -206,6 +213,7 @@
 				F27E110426C46246009211CB /* ContentView.swift in Sources */,
 				F27E110226C46246009211CB /* PersonnelApp.swift in Sources */,
 				F279D4B22727329400AE30B9 /* PersonList.swift in Sources */,
+				28DD0F192749749C00850BB4 /* PsqlModel.swift in Sources */,
 				F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */,
 				F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */,
 			);
@@ -396,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/codewinsdotcom/postgresclientkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28DD0F16274973FA00850BB4 /* PostgresClientKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */;
+			productName = PostgresClientKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F27E10F626C46246009211CB /* Project object */;
 }

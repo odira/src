@@ -1,10 +1,3 @@
-//
-//  PersonnelApp.swift
-//  Personnel
-//
-//  Created by Владимир Ильин on 11.08.2021.
-//
-
 import SwiftUI
 
 @main

@@ -1,8 +1,8 @@
 import Foundation
 import SwiftUI
 
-struct Person: Hashable, Codable, Identifiable {
-    var id: Int
+struct Person: Hashable, Identifiable {
+    var id: UUID? = UUID()
     var valid: Bool?
     var surname: String
     var name: String
@@ -16,7 +16,7 @@ struct Person: Hashable, Codable, Identifiable {
     var shiftNum: Int?
     var note: String?
     
-    private var sex: String?
+    var sex: String?
     var sexString: String {
         if sex == "m" {
             return String("муж")
@@ -37,7 +37,7 @@ struct Person: Hashable, Codable, Identifiable {
         }
     }
     
-    private var imageName: String?
+    var imageName: String?
     var image: Image {
         if imageName != nil {
             return Image(imageName!)
