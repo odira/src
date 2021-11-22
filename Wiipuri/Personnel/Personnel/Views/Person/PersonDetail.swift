@@ -54,7 +54,7 @@ struct PersonDetail: View {
                     }
                     HStack {
                         Text("Дата рождения:")
-//                        Text(person.birthDate)
+                        Text(person.birthDate)
 //                        Text(person.birthday)
                         Text(" (\(person.age!) лет)")
                     }

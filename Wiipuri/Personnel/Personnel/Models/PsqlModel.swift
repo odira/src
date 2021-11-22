@@ -1,6 +1,5 @@
 import Foundation
 import PostgresClientKit
-import SwiftUI
 
 var model = PsqlModel()
 var persons: [Person] = model.getPersons()
@@ -48,9 +47,9 @@ class PsqlModel {
                 let note = try? columns[15].string()
                 let imageName = try? columns[16].string()
                 
-//                let servicePeriod = servicePeriod(lowerPostgres: servicePeriod_lower!, upperPostgres: servicePeriod_upper!)
+                let servicePeriod = servicePeriod(servicePeriod_lower, servicePeriod_upper)
                                 
-                self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, note: note, imageName: imageName))
+                self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, servicePeriod: servicePeriod, note: note, imageName: imageName))
             }
         } catch {
             print(error)
@@ -60,37 +59,44 @@ class PsqlModel {
     }
 }
 
-func servicePeriod(lowerPostgres: PostgresDate?, upperPostgres: PostgresDate?) -> DateInterval {
+func servicePeriod(_ lower: PostgresDate?, _ upper: PostgresDate?) -> DateInterval {
     /// The UTC/GMT time zone.
     let utcTimeZone = TimeZone(secondsFromGMT: 0)!
     
-    let lower = lowerPostgres!.date(in: utcTimeZone)
-    let upper = upperPostgres!.date(in: utcTimeZone)
+    var lowerDate: Date = Date()
+    var upperDate: Date = Date()
     
-    print(DateInterval(start: lower, end: upper))
-    return DateInterval(start: lower, end: upper)
-}
-
-
-
-
-
-
-/// Extension to get daterange from Postgres
-///
-public extension PostgresValue {
-    
-    /// Converts this `PostgresValue` to a `Double`.
-    ///
-    /// - Returns: the `Double`
-    /// - Throws: `PostgresError` if the conversion fails
-    func dateRange() throws -> String? {
-        guard let rawValue = rawValue else { return nil }
-        
-//        guard let range = PostgresByteA(rawValue) else {
-//            throw conversionError(PostgresByteA.self)
-//        }
-        
-        return rawValue
+    if let unwrappedLower = lower {
+        lowerDate = unwrappedLower.date(in: utcTimeZone)
     }
+    
+    if let unwrappedUpper = upper {
+        upperDate = unwrappedUpper.date(in: utcTimeZone)
+    }
+    
+    return DateInterval(start: lowerDate, end: upperDate)
 }
+
+
+
+
+
+//
+///// Extension to get daterange from Postgres
+/////
+//public extension PostgresValue {
+//
+//    /// Converts this `PostgresValue` to a `Double`.
+//    ///
+//    /// - Returns: the `Double`
+//    /// - Throws: `PostgresError` if the conversion fails
+//    func dateRange() throws -> String? {
+//        guard let rawValue = rawValue else { return nil }
+//
+////        guard let range = PostgresByteA(rawValue) else {
+////            throw conversionError(PostgresByteA.self)
+////        }
+//
+//        return rawValue
+//    }
+//}
