@@ -17,17 +17,9 @@ struct Person: Identifiable {
     var klass: Int?
     var shiftNum: Int?
     var sectorsPool: String?
+    var servicePeriod: DateInterval?
     var note: String?
-    
-    var sexString: String {
-        if sex == "m" {
-            return String("муж")
-        } else if sex == "f" {
-            return String("жен")
-        } else {
-            return String("N/A")
-        }
-    }
+    var imageName: String?
     
     var sexColor: Color {
         if sex == "m" {
@@ -39,12 +31,23 @@ struct Person: Identifiable {
         }
     }
     
-    var imageName: String?
     var image: Image {
         if imageName != nil {
             return Image(imageName!)
         } else {
             return Image("nophoto")
+        }
+    }
+}
+
+extension Person {
+    var sexString: String {
+        if sex == "m" {
+            return String("муж")
+        } else if sex == "f" {
+            return String("жен")
+        } else {
+            return String("N/A")
         }
     }
 }
@@ -62,7 +65,7 @@ extension Person {
 }
 
 extension Person {
-    var age: Int? {        
+    var age: Int? {
         /// The UTC/GMT time zone.
         let utcTimeZone = TimeZone(secondsFromGMT: 0)!
         let date1 = birthday!.date(in: utcTimeZone)
