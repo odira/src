@@ -42,8 +42,8 @@ class PsqlModel {
                 let klass = try? columns[10].int()
                 let shiftNum = try? columns[11].int()
                 let sectorsPool = try? columns[12].string()
-                let servicePeriod_lower = try? columns[13].date()
-                let servicePeriod_upper = try? columns[14].date()
+                let servicePeriod_lower = try? columns[13].date() /// PostgresDate? returns
+                let servicePeriod_upper = try? columns[14].date() /// PostgresDate? returns
                 let note = try? columns[15].string()
                 let imageName = try? columns[16].string()
                 
@@ -63,19 +63,12 @@ func servicePeriod(_ lower: PostgresDate?, _ upper: PostgresDate?) -> DateInterv
     /// The UTC/GMT time zone.
     let utcTimeZone = TimeZone(secondsFromGMT: 0)!
     
-    var lowerDate: Date = Date()
-    var upperDate: Date = Date()
-    
-    if let unwrappedLower = lower {
-        lowerDate = unwrappedLower.date(in: utcTimeZone)
-    }
-    
-    if let unwrappedUpper = upper {
-        upperDate = unwrappedUpper.date(in: utcTimeZone)
-    }
+    let lowerDate = lower?.date(in: utcTimeZone) ?? Date()
+    let upperDate = upper?.date(in: utcTimeZone) ?? Date()
     
     return DateInterval(start: lowerDate, end: upperDate)
 }
+    
 
 
 
