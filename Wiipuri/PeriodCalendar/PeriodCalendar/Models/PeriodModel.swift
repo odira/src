@@ -19,8 +19,8 @@ class PeriodModel {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-//            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, valid, period, start_date, end_date, duration, note FROM calendar.vw_empl_shedule"
-            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, valid, note FROM calendar.vw_empl_period"
+            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, valid, period, start_date, end_date, duration, note FROM calendar.vw_empl_period"
+
             let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
             
@@ -44,20 +44,33 @@ class PeriodModel {
                 let activityActivity = try? columns[10].string()
                 let activityColor = try? columns[11].string()
                 let activityNote = try? columns[12].string()
+
+                let valid = try? columns[13].bool()
+
+                let period = try? columns[14].postgresValue
+                print(period)
                 
-                let valid = try columns[13].bool()
+                if let periodNew = period {
+                    print(periodNew)
+                }
                 
-//                var period: try columns[14].date
-//                var start: Date
-//                var end: Date
-//                var duration: DateInterval
+                var start = try? columns[15].date()
+                var end = try? columns[16].date()
+//                var duration = try? columns[17].DateInterval()
+
+                let note = try? columns[18].string()
                 
-                let note = try columns[14].string()
-                
+                let utcTimeZone = TimeZone(secondsFromGMT: 0)!
+                let startDate = start?.date(in: utcTimeZone) ?? Date()
+                let endDate = end?.date(in: utcTimeZone) ?? Date()
+
                 self.periods.append(
                 Period(
                     personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColor: activityColor, activityNote: activityNote, valid: valid,
-//                    period: nil, start: nil, end: nil, duration: nil,
+//                    period: nil,
+                    startDate: startDate,
+                    endDate: endDate,
+//                    duration: nil,
                     note: note
                 )
                 )

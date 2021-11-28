@@ -18,12 +18,30 @@ struct Period: Identifiable {
     var activityColor: String?
     var activityNote: String?
     
-    var valid: Bool
+    var valid: Bool?
     
 //    var period: DateInterval
-//    var start: Date
-//    var end: Date
+    var startDate: Date?
+    var endDate: Date?
 //    var duration: DateInterval
     
     var note: String?
+}
+
+extension Period {
+    var startDateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        
+        return formatter.string(from: startDate!)
+    }
+}
+
+extension Period {
+    var endDateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        
+        return formatter.string(from: endDate!)
+    }
 }

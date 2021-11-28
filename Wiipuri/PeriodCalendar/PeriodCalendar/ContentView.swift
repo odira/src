@@ -4,7 +4,15 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(periods) { period in
-                Text("OK")
+                VStack(alignment: .leading) {
+                    Text(period.personSurname!)
+                    HStack {
+                        Text(period.startDateString)
+                        Spacer()
+                        Text(period.endDateString)
+                    }
+                    .font(.subheadline)
+                }
             }
         }
     }
