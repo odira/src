@@ -19,8 +19,8 @@ class PsqlModel {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-            let sqlText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note, imagename FROM person.vw_person;"
-            let statement = try connection.prepareStatement(text: sqlText)
+            let sqlQueryText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note, imagename FROM person.vw_person;"
+            let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
             
             let cursor = try statement.execute()
@@ -30,6 +30,7 @@ class PsqlModel {
                 let columns = try row.get().columns
                 
                 let valid = try columns[0].bool()
+    
                 let surname = try columns[1].string()
                 let name = try columns[2].string()
                 let middleName = try columns[3].string()
@@ -68,28 +69,3 @@ func servicePeriod(_ lower: PostgresDate?, _ upper: PostgresDate?) -> DateInterv
     
     return DateInterval(start: lowerDate, end: upperDate)
 }
-    
-
-
-
-
-
-//
-///// Extension to get daterange from Postgres
-/////
-//public extension PostgresValue {
-//
-//    /// Converts this `PostgresValue` to a `Double`.
-//    ///
-//    /// - Returns: the `Double`
-//    /// - Throws: `PostgresError` if the conversion fails
-//    func dateRange() throws -> String? {
-//        guard let rawValue = rawValue else { return nil }
-//
-////        guard let range = PostgresByteA(rawValue) else {
-////            throw conversionError(PostgresByteA.self)
-////        }
-//
-//        return rawValue
-//    }
-//}
