@@ -5,13 +5,25 @@ struct ContentView: View {
         List {
             ForEach(periods) { period in
                 VStack(alignment: .leading) {
-                    Text(period.personSurname!)
                     HStack {
+                        Text(period.personSurname)
+                        HStack {
+                            Text(period.personName)
+                            Text(period.personMiddleName)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(Color.secondary)
+                    }
+                    Text(period.activityActivity)
+                        .font(.subheadline)
+                        .foregroundColor(period.activityColor)
+                    HStack(alignment: .center) {
                         Text(period.startDateString)
-                        Spacer()
+                        Text("-")
                         Text(period.endDateString)
                     }
                     .font(.subheadline)
+                    .foregroundColor(Color.accentColor)
                 }
             }
         }

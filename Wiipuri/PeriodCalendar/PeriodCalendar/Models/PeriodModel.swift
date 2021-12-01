@@ -19,7 +19,7 @@ class PeriodModel {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, valid, period, start_date, end_date, duration, note FROM calendar.vw_empl_period"
+            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_sex, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, period, start_date, end_date, duration, note FROM calendar.vw_empl_period"
 
             let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
@@ -31,21 +31,20 @@ class PeriodModel {
                 let columns = try row.get().columns
                 
                 let personId = try? columns[0].int()
-                let personSurname = try? columns[1].string()
-                let personName = try? columns[2].string()
-                let personMiddleName = try? columns[3].string()
-                let personTabNum = try? columns[4].int()
-                let personPosition = try? columns[5].string()
-                let personShiftNum = try? columns[6].int()
-                let personSectorsPool = try? columns[7].string()
+                let personSurname = try columns[1].string()
+                let personName = try columns[2].string()
+                let personMiddleName = try columns[3].string()
+                let personSex = try? columns[4].string()
+                let personTabNum = try columns[5].int()
+                let personPosition = try? columns[6].string()
+                let personShiftNum = try? columns[7].int()
+                let personSectorsPool = try? columns[8].string()
                 
-                let activityId = try? columns[8].int()
-                let activityAbbr = try? columns[9].string()
-                let activityActivity = try? columns[10].string()
-                let activityColor = try? columns[11].string()
-                let activityNote = try? columns[12].string()
-
-                let valid = try? columns[13].bool()
+                let activityId = try columns[9].int()
+                let activityAbbr = try columns[10].string()
+                let activityActivity = try columns[11].string()
+                let activityColorString = try columns[12].string()
+                let activityNote = try? columns[13].string()
 
                 let period = try? columns[14].postgresValue
                 print(period)
@@ -66,7 +65,7 @@ class PeriodModel {
 
                 self.periods.append(
                 Period(
-                    personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColor: activityColor, activityNote: activityNote, valid: valid,
+                    personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personSex: personSex, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColorString: activityColorString, activityNote: activityNote,
 //                    period: nil,
                     startDate: startDate,
                     endDate: endDate,
