@@ -19,7 +19,7 @@ class PsqlModel {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-            let sqlQueryText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note, imagename FROM person.vw_person;"
+            let sqlQueryText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note FROM person.vw_person;"
             let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
             
@@ -46,11 +46,11 @@ class PsqlModel {
                 let servicePeriod_lower = try? columns[13].date() /// PostgresDate? returns
                 let servicePeriod_upper = try? columns[14].date() /// PostgresDate? returns
                 let note = try? columns[15].string()
-                let imageName = try? columns[16].string()
+//                let imageName = try? columns[16].string()
                 
                 let servicePeriod = servicePeriod(servicePeriod_lower, servicePeriod_upper)
                                 
-                self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, servicePeriod: servicePeriod, note: note, imageName: imageName))
+                self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, servicePeriod: servicePeriod, note: note))
             }
         } catch {
             print(error)

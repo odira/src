@@ -19,7 +19,6 @@ struct Person: Identifiable {
     var sectorsPool: String?
     var servicePeriod: DateInterval?
     var note: String?
-    var imageName: String?
     
     var sexColor: Color {
         if sex == "m" {
@@ -32,8 +31,8 @@ struct Person: Identifiable {
     }
     
     var image: Image {
-        if imageName != nil {
-            return Image(imageName!)
+        if !imageName.isEmpty {
+            return Image(imageName)
         } else {
             return Image("nophoto")
         }
@@ -130,6 +129,17 @@ extension Person {
         output = output + String(phone[index])
 
         return output
+    }
+}
+
+extension Person {
+    var imageName: String {
+        if tabNum != nil {
+            let tabNumString = String(tabNum!)
+            return tabNumString
+        } else {
+            return String()
+        }
     }
 }
 
