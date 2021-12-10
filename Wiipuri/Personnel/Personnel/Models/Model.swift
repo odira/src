@@ -4,8 +4,8 @@ import PostgresClientKit
 var model = Model()
 var persons: [Person] = model.getPersons()
 
-struct FilteredPerson {
-    var bySurname = ""
+class FilteredPerson: ObservableObject {
+    @Published var bySurname: String = ""
 }
 
 //$ObservableObject var filteredPerson = FilteredPerson()
@@ -55,7 +55,6 @@ class Model {
                 let columns = try row.get().columns
                 
                 let valid = try columns[0].bool()
-    
                 let surname = try columns[1].string()
                 let name = try columns[2].string()
                 let middleName = try columns[3].string()
@@ -73,6 +72,8 @@ class Model {
                 let note = try? columns[15].string()
                 
                 let servicePeriod = servicePeriod(servicePeriod_lower, servicePeriod_upper)
+                
+                print(surname)
                                 
                 self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, servicePeriod: servicePeriod, note: note))
             }

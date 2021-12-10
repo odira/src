@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct PersonList: View {
-    @State private var searchText = ""
+    @ObservedObject var filteredPerson = FilteredPerson()
+
     var searchResults: [Person] {
-        if searchText.isEmpty {
-            return filteredPersons
+        if filteredPerson.bySurname.isEmpty {
+            return persons
         } else {
-            return filteredPersons.filter { $0.surname.contains(searchText) }
+            return persons.filter { $0.surname.contains(filteredPerson.bySurname) }
         }
     }
     
@@ -25,7 +26,7 @@ struct PersonList: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .searchable(text: $searchText, prompt: "Look for surname")
+            .searchable(text: $filteredPerson.bySurname, prompt: "Look for surname")
             .navigationTitle("Список работников")
             .toolbar {
                 Button(action: {
