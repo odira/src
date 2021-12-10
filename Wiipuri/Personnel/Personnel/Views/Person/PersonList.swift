@@ -2,19 +2,18 @@ import SwiftUI
 
 struct PersonList: View {
     @ObservedObject var filteredPerson = FilteredPerson()
-
+    @State private var showingSearchSheet = false
+    
     var searchResults: [Person] {
         if filteredPerson.bySurname.isEmpty {
+            if filteredPerson.shiftNum != 0 {
+                return persons.filter { $0.shiftNum == filteredPerson.shiftNum }
+            }
             return persons
         } else {
             return persons.filter { $0.surname.contains(filteredPerson.bySurname) }
         }
     }
-    
-    @State private var showingSheet = false
-    
-    @State var surname: String = ""
-    @State var shiftNum: Int = 0
     
     var body: some View {
         NavigationView {
@@ -30,15 +29,13 @@ struct PersonList: View {
             .navigationTitle("Список работников")
             .toolbar {
                 Button(action: {
-                    showingSheet.toggle()
+                    showingSearchSheet.toggle()
                 }) {
                     Image(systemName: "magnifyingglass")
                 }
             }
-            .sheet(isPresented: $showingSheet) {
-                SearchSheet(surname: $surname,
-                            shiftNum: $shiftNum
-                )
+            .sheet(isPresented: $showingSearchSheet) {
+                SearchSheet(filteredPerson: filteredPerson)
             }
         }
     }

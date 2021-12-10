@@ -5,11 +5,11 @@ var model = Model()
 var persons: [Person] = model.getPersons()
 
 class FilteredPerson: ObservableObject {
+    @Published var byName: String = ""
+    @Published var byMiddlename: String = ""
     @Published var bySurname: String = ""
+    @Published var shiftNum: Int = 0
 }
-
-//$ObservableObject var filteredPerson = FilteredPerson()
-var searchText: String = ""
 
 var filteredPersons: [Person] {
 //    if searchText.isEmpty {
