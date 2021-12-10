@@ -1,10 +1,35 @@
 import Foundation
 import PostgresClientKit
 
-var model = PsqlModel()
+var model = Model()
 var persons: [Person] = model.getPersons()
 
-class PsqlModel {
+struct FilteredPerson {
+    var bySurname = ""
+}
+
+//$ObservableObject var filteredPerson = FilteredPerson()
+var searchText: String = ""
+
+var filteredPersons: [Person] {
+//    if searchText.isEmpty {
+//        return persons
+//    } else {
+//        return persons.filter { $0.surname.contains(searchText) }
+//    }
+////        else {
+////            if shiftNum == 0 {
+////                return persons.filter { $0.surname.contains(searchText) }
+////            } else {
+////                return persons.filter { $0.shiftNum == shiftNum && $0.surname.contains(surname) }
+////            }
+////        }
+    ///
+    
+    return persons
+}
+
+class Model {
     private var persons: [Person] = []
     
     func getPersons() -> [Person] {
@@ -43,10 +68,9 @@ class PsqlModel {
                 let klass = try? columns[10].int()
                 let shiftNum = try? columns[11].int()
                 let sectorsPool = try? columns[12].string()
-                let servicePeriod_lower = try? columns[13].date() /// PostgresDate? returns
-                let servicePeriod_upper = try? columns[14].date() /// PostgresDate? returns
+                let servicePeriod_lower = try? columns[13].date() /// returns PostgresDate?
+                let servicePeriod_upper = try? columns[14].date() /// returns PostgresDate?
                 let note = try? columns[15].string()
-//                let imageName = try? columns[16].string()
                 
                 let servicePeriod = servicePeriod(servicePeriod_lower, servicePeriod_upper)
                                 

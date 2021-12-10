@@ -9,7 +9,8 @@ struct CircleImage: View {
             .scaledToFit()
             .frame(width: 200)
             .clipShape(Circle())
-            .overlay(Circle().stroke(person.sexColor, lineWidth: 2))
+            .overlay(Circle().stroke(.white, lineWidth: 6))
+            .overlay(Circle().stroke(person.sexColor, lineWidth: 3))
 //            .shadow(color: person.sexColor, radius: 10)
 //            .border(person.sexColor, width: 6)
     }
