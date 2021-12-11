@@ -12,14 +12,14 @@ enum PersonValid {
 }
 
 class PersonFilters: ObservableObject {
-    @Published var byValid: Bool = true
+    @Published var byValid: PersonValid = .all
     @Published var byName: String = ""
     @Published var byMiddlename: String = ""
     @Published var bySurname: String = ""
     @Published var byShiftNum: Int = 0
     
     init() {
-        byValid = true
+        byValid = .all
         byName = ""
         byMiddlename = ""
         bySurname = ""
@@ -27,7 +27,7 @@ class PersonFilters: ObservableObject {
     }
     
     func update() {
-        byValid = true
+        byValid = .all
         byName = ""
         byMiddlename = ""
         bySurname = ""
@@ -50,7 +50,7 @@ class Model {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-            let sqlQueryText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note FROM person.vw_person;"
+            let sqlQueryText = "SELECT valid, surname, name, middlename, sex, birthday, mobile_phone, email, tab_num, position, class, shift_num, sectors_pool, lower(service_period), upper(service_period), note FROM person.vw_person ORDER BY surname,name;"
             let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
             

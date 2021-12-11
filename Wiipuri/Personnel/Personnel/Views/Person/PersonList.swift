@@ -8,7 +8,14 @@ struct PersonList: View {
         var results = persons
         
         switch personFilters.byValid {
-            
+        case .all:
+            break
+        case .valid:
+            results.removeAll(where: {!$0.valid!})
+        case .invalid:
+            results.removeAll(where: {$0.valid!})
+        default:
+            break
         }
         
         if !personFilters.byName.isEmpty {
