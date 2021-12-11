@@ -1,41 +1,59 @@
 import SwiftUI
 
 struct PersonList: View {
-    @ObservedObject var filteredPerson = FilteredPerson()
     @State private var showingSearchSheet = false
+    @EnvironmentObject var personFilters: PersonFilters
     
-    var searchResults: [Person] {
-        if filteredPerson.bySurname.isEmpty {
-            if filteredPerson.shiftNum != 0 {
-                return persons.filter { $0.shiftNum == filteredPerson.shiftNum }
-            }
-            return persons
-        } else {
-            return persons.filter { $0.surname.contains(filteredPerson.bySurname) }
+    var filteredPersons: [Person] {
+        var results = persons
+        
+        switch personFilters.byValid {
+            
         }
+        
+        if !personFilters.byName.isEmpty {
+            results = results.filter { $0.name.contains(personFilters.byName) }
+        }
+        if !personFilters.byMiddlename.isEmpty {
+            results = results.filter { $0.middleName.contains(personFilters.byMiddlename) }
+        }
+        if !personFilters.bySurname.isEmpty {
+            results.removeAll(where: {$0.surname.range(of: personFilters.bySurname, options: .caseInsensitive) == nil})
+        }
+        
+        results = results.filter({ personFilters.byShiftNum == 0 || $0.shiftNum == personFilters.byShiftNum })
+        
+        return results
     }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(searchResults) { person in
+                ForEach(filteredPersons) { person in
                     NavigationLink(destination: PersonDetail(person: person)) {
                         PersonRow(person: person)
                     }
                 }
             }
             .listStyle(GroupedListStyle())
-            .searchable(text: $filteredPerson.bySurname, prompt: "Look for surname")
+            .searchable(text: $personFilters.bySurname, prompt: "Look for surname")
             .navigationTitle("Список работников")
             .toolbar {
-                Button(action: {
-                    showingSearchSheet.toggle()
-                }) {
-                    Image(systemName: "magnifyingglass")
+                HStack {
+                    Button(action: {
+                        showingSearchSheet.toggle()
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                    }
+                    Button(action: {
+                        personFilters.update()
+                    }) {
+                        Image(systemName: "repeat")
+                    }
                 }
             }
             .sheet(isPresented: $showingSearchSheet) {
-                SearchSheet(filteredPerson: filteredPerson)
+                SearchSheet(personFilters: personFilters)
             }
         }
     }

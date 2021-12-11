@@ -1,32 +1,38 @@
 import Foundation
 import PostgresClientKit
+import SwiftUI
 
 var model = Model()
 var persons: [Person] = model.getPersons()
 
-class FilteredPerson: ObservableObject {
+enum PersonValid {
+    case all
+    case valid
+    case invalid
+}
+
+class PersonFilters: ObservableObject {
+    @Published var byValid: Bool = true
     @Published var byName: String = ""
     @Published var byMiddlename: String = ""
     @Published var bySurname: String = ""
-    @Published var shiftNum: Int = 0
-}
-
-var filteredPersons: [Person] {
-//    if searchText.isEmpty {
-//        return persons
-//    } else {
-//        return persons.filter { $0.surname.contains(searchText) }
-//    }
-////        else {
-////            if shiftNum == 0 {
-////                return persons.filter { $0.surname.contains(searchText) }
-////            } else {
-////                return persons.filter { $0.shiftNum == shiftNum && $0.surname.contains(surname) }
-////            }
-////        }
-    ///
+    @Published var byShiftNum: Int = 0
     
-    return persons
+    init() {
+        byValid = true
+        byName = ""
+        byMiddlename = ""
+        bySurname = ""
+        byShiftNum = 0
+    }
+    
+    func update() {
+        byValid = true
+        byName = ""
+        byMiddlename = ""
+        bySurname = ""
+        byShiftNum = 0
+    }
 }
 
 class Model {
