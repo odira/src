@@ -14,9 +14,9 @@ EmplSheduleMonthModel::EmplSheduleMonthModel(QObject *parent, QSqlDatabase db)
 
     // Initialize the person pids array
     m_personPidArray.clear();
-    QString queryString("SELECT pid "
+    QString queryString("SELECT id "
                         "FROM person.vw_person "
-                        "WHERE valid=true AND sectors_pool='Пенза' AND shift_num=4");
+                        "WHERE valid=true AND shift_num=6");
     QSqlQuery query(queryString);
     while (query.next()) {
         int pid = query.value(0).toInt();
@@ -90,7 +90,7 @@ QVariant EmplSheduleMonthModel::data(const QModelIndex &idx, int role) const
                 int personPid = m_personPidArray.at(row);
                 QDate date = QDate(m_date.year(), m_date.month(), col + 1);
                 QString queryString = QString("SELECT activity_abbr FROM calendar.vw_empl_period "
-                                              "WHERE person_pid='%1' AND '%2' BETWEEN start_date AND end_date")
+                                              "WHERE person_id='%1' AND '%2' BETWEEN start_date AND end_date")
                         .arg(personPid)
                         .arg(date.toString("yyyy-MM-dd"));
                 QSqlQuery query(queryString);
@@ -149,7 +149,7 @@ QVariant EmplSheduleMonthModel::data(const QModelIndex &idx, int role) const
         {
             QString queryString = QString("SELECT (surname || ' ' || left(name, 1) || '.' || left(middlename, 1) || '.') AS fullname "
                                           "FROM person.vw_person "
-                                          "WHERE pid=%1")
+                                          "WHERE id=%1")
                     .arg(personPid);
             QSqlQuery query(queryString);
             while (query.next()) {
