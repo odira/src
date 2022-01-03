@@ -46,9 +46,9 @@ class SheduleModel {
                 let activityColorString = try columns[12].string()
                 let activityNote = try? columns[13].string()
 
-                let period = try? columns[14].postgresValue
-                print(period!)
-                print(type(of: period))
+                let periodString = try? columns[14].postgresValue.string()
+                print(periodString!)
+                print(type(of: periodString))
                 
 //                if let periodNew = period {
 //                    print(periodNew)
@@ -67,6 +67,7 @@ class SheduleModel {
                 self.shedule.append(
                     Shedule(
                         personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personSex: personSex, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColorString: activityColorString, activityNote: activityNote,
+                        periodString: periodString!,
                         period: DateInterval(start: Date(), end: Date()),
                         startDate: startDate,
                         endDate: endDate,
