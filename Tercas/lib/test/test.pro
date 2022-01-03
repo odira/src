@@ -3,7 +3,7 @@ QT       += core gui widgets sql
 TARGET = wiipuriTest
 TEMPLATE = app
 
-INCLUDEPATH += ../lib/src
+#INCLUDEPATH += ../lib/src
 
 
 SOURCES += main.cpp \

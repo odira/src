@@ -69,5 +69,6 @@ struct PersonList: View {
 struct PersonList_Previews: PreviewProvider {
     static var previews: some View {
         PersonList()
+            .environmentObject(PersonFilters())
     }
 }
