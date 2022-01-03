@@ -14,8 +14,6 @@ struct PersonList: View {
             results.removeAll(where: {!$0.valid!})
         case .invalid:
             results.removeAll(where: {$0.valid!})
-        default:
-            break
         }
         
         if !personFilters.byName.isEmpty {

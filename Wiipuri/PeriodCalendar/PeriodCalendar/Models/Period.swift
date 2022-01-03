@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct Period: Identifiable {
+struct Shedule: Identifiable {
     var id: UUID = UUID()
     
     var personId: Int?
@@ -20,15 +20,16 @@ struct Period: Identifiable {
     var activityColorString: String
     var activityNote: String?
     
-//    var period: DateInterval
+//    var period: DateInterval = DateInterval(start: Date(), end: Date())
+    var period: DateInterval
     var startDate: Date?
     var endDate: Date?
-//    var duration: DateInterval
+    var duration: Int
     
     var note: String?
 }
 
-extension Period {
+extension Shedule {
     var personSexString: String {
         if personSex == "m" {
             return String("муж")
@@ -40,7 +41,7 @@ extension Period {
     }
 }
 
-extension Period {
+extension Shedule {
     var activityColor: Color {
         if activityId == 3 { /// отпуск п/г
             return Color(.green)
@@ -52,7 +53,7 @@ extension Period {
     }
 }
 
-extension Period {
+extension Shedule {
     var startDateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"
@@ -61,7 +62,7 @@ extension Period {
     }
 }
 
-extension Period {
+extension Shedule {
     var endDateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"

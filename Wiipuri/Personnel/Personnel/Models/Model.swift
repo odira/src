@@ -78,8 +78,6 @@ class Model {
                 let note = try? columns[15].string()
                 
                 let servicePeriod = servicePeriod(servicePeriod_lower, servicePeriod_upper)
-                
-                print(surname)
                                 
                 self.persons.append(Person(valid: valid, surname: surname, name: name, middleName: middleName, sex: sex, birthday: birthday, mobilePhone: mobilePhone, email: email, tabNum: tabNum, position: position, klass: klass, shiftNum: shiftNum, sectorsPool: sectorsPool, servicePeriod: servicePeriod, note: note))
             }

@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         List {
-            ForEach(periods) { period in
+            ForEach(shedule) { period in
                 VStack(alignment: .leading) {
                     HStack {
                         Text(period.personSurname)

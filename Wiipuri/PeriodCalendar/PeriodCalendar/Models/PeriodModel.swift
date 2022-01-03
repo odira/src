@@ -1,13 +1,13 @@
 import Foundation
 import PostgresClientKit
 
-var model = PeriodModel()
-var periods: [Period] = model.getPeriods()
+var model = SheduleModel()
+var shedule: [Shedule] = model.getShedule()
 
-class PeriodModel {
-    private var periods: [Period] = []
+class SheduleModel {
+    private var shedule: [Shedule] = []
     
-    func getPeriods() -> [Period] {
+    func getShedule() -> [Shedule] {
         do {
             var configuration = PostgresClientKit.ConnectionConfiguration()
             configuration.host = "127.0.0.1"
@@ -19,7 +19,7 @@ class PeriodModel {
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
             
-            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_sex, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, period, start_date, end_date, duration, note FROM calendar.vw_empl_period"
+            let sqlQueryText = "SELECT person_id, person_surname, person_name, person_middlename, person_sex, person_tab_num, person_position, person_shift_num, person_sectors_pool, activity_id, activity_abbr, activity_activity, activity_color, activity_note, period, start_date, end_date, duration, note FROM calendar.vw_empl_shedule ORDER BY period,person_surname"
 
             let statement = try connection.prepareStatement(text: sqlQueryText)
             defer { statement.close() }
@@ -47,15 +47,16 @@ class PeriodModel {
                 let activityNote = try? columns[13].string()
 
                 let period = try? columns[14].postgresValue
-                print(period)
+                print(period!)
+                print(type(of: period))
                 
-                if let periodNew = period {
-                    print(periodNew)
-                }
+//                if let periodNew = period {
+//                    print(periodNew)
+//                }
                 
                 var start = try? columns[15].date()
                 var end = try? columns[16].date()
-//                var duration = try? columns[17].DateInterval()
+                var duration = try columns[17].int()
 
                 let note = try? columns[18].string()
                 
@@ -63,14 +64,14 @@ class PeriodModel {
                 let startDate = start?.date(in: utcTimeZone) ?? Date()
                 let endDate = end?.date(in: utcTimeZone) ?? Date()
 
-                self.periods.append(
-                Period(
-                    personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personSex: personSex, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColorString: activityColorString, activityNote: activityNote,
-//                    period: nil,
-                    startDate: startDate,
-                    endDate: endDate,
-//                    duration: nil,
-                    note: note
+                self.shedule.append(
+                    Shedule(
+                        personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personSex: personSex, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColorString: activityColorString, activityNote: activityNote,
+                        period: DateInterval(start: Date(), end: Date()),
+                        startDate: startDate,
+                        endDate: endDate,
+                        duration: duration,
+                        note: note
                 )
                 )
             }
@@ -78,6 +79,6 @@ class PeriodModel {
             print(error)
         }
         
-        return periods
+        return shedule
     }
 }
