@@ -20,9 +20,8 @@ struct Shedule: Identifiable {
     var activityColorString: String
     var activityNote: String?
     
-//    var period: DateInterval
     var periodString: String
-//    var period: DateInterval
+    var period: DateInterval
     
     var startDate: Date?
     var endDate: Date?

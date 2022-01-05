@@ -47,12 +47,22 @@ class SheduleModel {
                 let activityNote = try? columns[13].string()
 
                 let periodString = try? columns[14].postgresValue.string()
-                print(periodString!)
-                print(type(of: periodString))
-                
-//                if let periodNew = period {
-//                    print(periodNew)
-//                }
+                var dateInterval = DateInterval()
+                if let period = periodString {
+                    var tmpStr = period
+                    tmpStr.removeFirst()
+                    tmpStr.removeLast()
+                    let dateArray = tmpStr.components(separatedBy: ",")
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    
+                    let startDate = dateFormatter.date(from: dateArray[0])
+                    let endDate = dateFormatter.date(from: dateArray[1])
+                    let newEndDate = endDate!.addingTimeInterval(-24.0 * 60.0 * 60.0)
+                    
+                    dateInterval = DateInterval(start: startDate!, end: newEndDate)
+                }
                 
                 var start = try? columns[15].date()
                 var end = try? columns[16].date()
@@ -68,7 +78,7 @@ class SheduleModel {
                     Shedule(
                         personId: personId, personSurname: personSurname, personName: personName, personMiddleName: personMiddleName, personSex: personSex, personTabNum: personTabNum, personPosition: personPosition, personShiftNum: personShiftNum, personSectorsPool: personSectorsPool, activityId: activityId, activityAbbr: activityAbbr, activityActivity: activityActivity, activityColorString: activityColorString, activityNote: activityNote,
                         periodString: periodString!,
-                        period: DateInterval(start: Date(), end: Date()),
+                        period: dateInterval,
                         startDate: startDate,
                         endDate: endDate,
                         duration: duration,
