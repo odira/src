@@ -4,15 +4,29 @@ struct CircleImage: View {
     var person: Person
     
     var body: some View {
-        person.image
-            .resizable()
-            .scaledToFit()
-            .frame(width: 200)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(.white, lineWidth: 6))
-            .overlay(Circle().stroke(person.sexColor, lineWidth: 3))
-//            .shadow(color: person.sexColor, radius: 10)
-//            .border(person.sexColor, width: 6)
+        ZStack {
+            Circle()
+                .frame(width: 217, height: 217)
+                .overlay {
+                    Circle().fill(Color.white)
+                }
+                .overlay {
+                    Circle().stroke(Color.white)
+                }
+
+            person.image
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(Color.white, lineWidth: 6)
+                }
+                .overlay {
+                    Circle().stroke(person.sexColor, lineWidth: 3)
+                    
+                }
+        }
     }
 }
 

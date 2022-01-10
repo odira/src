@@ -5,9 +5,10 @@ struct PersonRow: View {
     
     var body: some View {
         HStack {
-            CircleImage(person: person)
+            person.image
+                .resizable()
                 .frame(width: 50, height: 50)
-                .padding(5)
+                .scaledToFit()
             
             VStack(alignment: .leading) {
                 Text(person.surname)

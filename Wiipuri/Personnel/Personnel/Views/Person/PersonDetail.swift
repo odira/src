@@ -55,7 +55,6 @@ struct PersonDetail: View {
                     HStack {
                         Text("Дата рождения:")
                         Text(person.birthDate)
-//                        Text(person.birthday)
                         Text(" (\(person.age!) лет)")
                     }
                 }
@@ -105,7 +104,7 @@ struct PersonDetail: View {
 
 struct PersonDetail_Previews: PreviewProvider {
     static var previews: some View {
-        PersonDetail(person: persons[10])
+        PersonDetail(person: persons[1])
             .environment(\.locale, Locale(identifier: "ru"))
     }
 }

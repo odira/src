@@ -2,43 +2,16 @@ import Foundation
 import PostgresClientKit
 import SwiftUI
 
-var model = Model()
-var persons: [Person] = model.getPersons()
-
-enum PersonValid {
-    case all
-    case valid
-    case invalid
-}
-
-class PersonFilters: ObservableObject {
-    @Published var byValid: PersonValid = .all
-    @Published var byName: String = ""
-    @Published var byMiddlename: String = ""
-    @Published var bySurname: String = ""
-    @Published var byShiftNum: Int = 0
+class Model: ObservableObject {
+    @Published var persons: [Person] = []
     
     init() {
-        byValid = .all
-        byName = ""
-        byMiddlename = ""
-        bySurname = ""
-        byShiftNum = 0
+        reload()
     }
     
-    func update() {
-        byValid = .all
-        byName = ""
-        byMiddlename = ""
-        bySurname = ""
-        byShiftNum = 0
-    }
-}
-
-class Model {
-    private var persons: [Person] = []
-    
-    func getPersons() -> [Person] {
+    func reload() {
+        persons.removeAll()
+        
         do {
             var configuration = PostgresClientKit.ConnectionConfiguration()
             configuration.host = "127.0.0.1"
@@ -84,17 +57,15 @@ class Model {
         } catch {
             print(error)
         }
-        
-        return persons
     }
-}
-
-func servicePeriod(_ lower: PostgresDate?, _ upper: PostgresDate?) -> DateInterval {
-    /// The UTC/GMT time zone.
-    let utcTimeZone = TimeZone(secondsFromGMT: 0)!
     
-    let lowerDate = lower?.date(in: utcTimeZone) ?? Date()
-    let upperDate = upper?.date(in: utcTimeZone) ?? Date()
-    
-    return DateInterval(start: lowerDate, end: upperDate)
+    func servicePeriod(_ lower: PostgresDate?, _ upper: PostgresDate?) -> DateInterval {
+        /// The UTC/GMT time zone.
+        let utcTimeZone = TimeZone(secondsFromGMT: 0)!
+        
+        let lowerDate = lower?.date(in: utcTimeZone) ?? Date()
+        let upperDate = upper?.date(in: utcTimeZone) ?? Date()
+        
+        return DateInterval(start: lowerDate, end: upperDate)
+    }
 }

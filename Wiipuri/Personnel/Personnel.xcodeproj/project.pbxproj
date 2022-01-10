@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28DC2F32278C896700E49BA4 /* PersonFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC2F31278C896700E49BA4 /* PersonFilters.swift */; };
 		28DD0F17274973FA00850BB4 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 28DD0F16274973FA00850BB4 /* PostgresClientKit */; };
 		28DD0F192749749C00850BB4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0F182749749C00850BB4 /* Model.swift */; };
 		F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D49D2726E81400AE30B9 /* PersonDetail.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28DC2F31278C896700E49BA4 /* PersonFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilters.swift; sourceTree = "<group>"; };
 		28DD0F182749749C00850BB4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F279D49D2726E81400AE30B9 /* PersonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetail.swift; sourceTree = "<group>"; };
 		F279D4A12726ED9600AE30B9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		F2764B2926EF39F2005320B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F27E110126C46246009211CB /* PersonnelApp.swift */,
 				F27E110326C46246009211CB /* ContentView.swift */,
 				F2764B2A26EF3B29005320B4 /* Person */,
 			);
@@ -101,7 +104,6 @@
 				F279D49A2726E58000AE30B9 /* Resources */,
 				F2764B2926EF39F2005320B4 /* Views */,
 				F27E111026C462B4009211CB /* Models */,
-				F27E110126C46246009211CB /* PersonnelApp.swift */,
 				F27E110526C46246009211CB /* Assets.xcassets */,
 				F27E110A26C46246009211CB /* Info.plist */,
 				F27E110726C46246009211CB /* Preview Content */,
@@ -123,6 +125,7 @@
 				F27E111126C462CD009211CB /* Person.swift */,
 				F279D4A32726F2C700AE30B9 /* ModelData.swift */,
 				28DD0F182749749C00850BB4 /* Model.swift */,
+				28DC2F31278C896700E49BA4 /* PersonFilters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				F27E110226C46246009211CB /* PersonnelApp.swift in Sources */,
 				F279D4B22727329400AE30B9 /* PersonList.swift in Sources */,
 				28DD0F192749749C00850BB4 /* Model.swift in Sources */,
+				28DC2F32278C896700E49BA4 /* PersonFilters.swift in Sources */,
 				F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */,
 				F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */,
 			);
