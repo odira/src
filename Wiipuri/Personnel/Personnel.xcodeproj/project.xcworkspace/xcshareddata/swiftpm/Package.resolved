@@ -20,12 +20,21 @@
         }
       },
       {
-        "package": "PostgresClientKit",
-        "repositoryURL": "https://github.com/codewinsdotcom/postgresclientkit.git",
+        "package": "PersonLib",
+        "repositoryURL": "https://github.com/odira/PersonLib.git",
         "state": {
-          "branch": null,
+          "branch": "main",
+          "revision": "3702d319160da683ddcb4a8d8714dd44b86368b9",
+          "version": null
+        }
+      },
+      {
+        "package": "PostgresClientKit",
+        "repositoryURL": "https://github.com/codewinsdotcom/PostgresClientKit.git",
+        "state": {
+          "branch": "master",
           "revision": "4e4f567f434ba253d6f4e0fb98b25e53d151b872",
-          "version": "1.4.1"
+          "version": null
         }
       }
     ]

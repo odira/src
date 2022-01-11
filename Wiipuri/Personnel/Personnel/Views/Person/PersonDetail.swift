@@ -1,4 +1,5 @@
 import SwiftUI
+import Person
 
 struct PersonDetail: View {
     var person: Person

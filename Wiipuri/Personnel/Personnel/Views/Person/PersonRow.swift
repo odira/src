@@ -1,4 +1,5 @@
 import SwiftUI
+import Person
 
 struct PersonRow: View {
     var person: Person
@@ -25,12 +26,12 @@ struct PersonRow: View {
     }
 }
 
-struct PersonRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PersonRow(person: persons[0])
-            PersonRow(person: persons[1])
-        }
-        .previewLayout(.fixed(width: 350, height: 70))
-    }
-}
+//struct PersonRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            PersonRow(person: persons[0])
+//            PersonRow(person: persons[1])
+//        }
+//        .previewLayout(.fixed(width: 350, height: 70))
+//    }
+//}

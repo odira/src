@@ -7,28 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28DC2F32278C896700E49BA4 /* PersonFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC2F31278C896700E49BA4 /* PersonFilters.swift */; };
-		28DD0F17274973FA00850BB4 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 28DD0F16274973FA00850BB4 /* PostgresClientKit */; };
-		28DD0F192749749C00850BB4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0F182749749C00850BB4 /* Model.swift */; };
+		28698068278C9EEA00B044D7 /* PersonFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28698067278C9EEA00B044D7 /* PersonFilters.swift */; };
+		2869806B278CA9C000B044D7 /* PersonLib in Frameworks */ = {isa = PBXBuildFile; productRef = 2869806A278CA9C000B044D7 /* PersonLib */; };
 		F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D49D2726E81400AE30B9 /* PersonDetail.swift */; };
 		F279D4A22726ED9600AE30B9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A12726ED9600AE30B9 /* CircleImage.swift */; };
-		F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A32726F2C700AE30B9 /* ModelData.swift */; };
 		F279D4A62726F8EE00AE30B9 /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4A52726F8EE00AE30B9 /* PersonRow.swift */; };
 		F279D4B22727329400AE30B9 /* PersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279D4B12727329400AE30B9 /* PersonList.swift */; };
 		F27E110226C46246009211CB /* PersonnelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110126C46246009211CB /* PersonnelApp.swift */; };
 		F27E110426C46246009211CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E110326C46246009211CB /* ContentView.swift */; };
 		F27E110626C46246009211CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110526C46246009211CB /* Assets.xcassets */; };
 		F27E110926C46246009211CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E110826C46246009211CB /* Preview Assets.xcassets */; };
-		F27E111226C462CD009211CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E111126C462CD009211CB /* Person.swift */; };
 		F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A31858273168CC0082EEFD /* SearchSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28DC2F31278C896700E49BA4 /* PersonFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilters.swift; sourceTree = "<group>"; };
-		28DD0F182749749C00850BB4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		28698067278C9EEA00B044D7 /* PersonFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonFilters.swift; sourceTree = "<group>"; };
 		F279D49D2726E81400AE30B9 /* PersonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetail.swift; sourceTree = "<group>"; };
 		F279D4A12726ED9600AE30B9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		F279D4A32726F2C700AE30B9 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		F279D4A52726F8EE00AE30B9 /* PersonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
 		F279D4B12727329400AE30B9 /* PersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonList.swift; sourceTree = "<group>"; };
 		F27E10FE26C46246009211CB /* Personnel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Personnel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +32,6 @@
 		F27E110526C46246009211CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F27E110826C46246009211CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F27E110A26C46246009211CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F27E111126C462CD009211CB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F2A31858273168CC0082EEFD /* SearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28DD0F17274973FA00850BB4 /* PostgresClientKit in Frameworks */,
+				2869806B278CA9C000B044D7 /* PersonLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +65,7 @@
 				F279D4A52726F8EE00AE30B9 /* PersonRow.swift */,
 				F279D4B12727329400AE30B9 /* PersonList.swift */,
 				F2A31858273168CC0082EEFD /* SearchSheet.swift */,
+				28698067278C9EEA00B044D7 /* PersonFilters.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -122,10 +117,6 @@
 		F27E111026C462B4009211CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F27E111126C462CD009211CB /* Person.swift */,
-				F279D4A32726F2C700AE30B9 /* ModelData.swift */,
-				28DD0F182749749C00850BB4 /* Model.swift */,
-				28DC2F31278C896700E49BA4 /* PersonFilters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,7 +138,7 @@
 			);
 			name = Personnel;
 			packageProductDependencies = (
-				28DD0F16274973FA00850BB4 /* PostgresClientKit */,
+				2869806A278CA9C000B044D7 /* PersonLib */,
 			);
 			productName = Personnel;
 			productReference = F27E10FE26C46246009211CB /* Personnel.app */;
@@ -177,7 +168,7 @@
 			);
 			mainGroup = F27E10F526C46246009211CB;
 			packageReferences = (
-				28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */,
+				28698069278CA9C000B044D7 /* XCRemoteSwiftPackageReference "PersonLib" */,
 			);
 			productRefGroup = F27E10FF26C46246009211CB /* Products */;
 			projectDirPath = "";
@@ -208,13 +199,10 @@
 				F279D4A22726ED9600AE30B9 /* CircleImage.swift in Sources */,
 				F279D49E2726E81400AE30B9 /* PersonDetail.swift in Sources */,
 				F279D4A62726F8EE00AE30B9 /* PersonRow.swift in Sources */,
-				F27E111226C462CD009211CB /* Person.swift in Sources */,
 				F27E110426C46246009211CB /* ContentView.swift in Sources */,
 				F27E110226C46246009211CB /* PersonnelApp.swift in Sources */,
 				F279D4B22727329400AE30B9 /* PersonList.swift in Sources */,
-				28DD0F192749749C00850BB4 /* Model.swift in Sources */,
-				28DC2F32278C896700E49BA4 /* PersonFilters.swift in Sources */,
-				F279D4A42726F2C700AE30B9 /* ModelData.swift in Sources */,
+				28698068278C9EEA00B044D7 /* PersonFilters.swift in Sources */,
 				F2A31859273168CC0082EEFD /* SearchSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,21 +394,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */ = {
+		28698069278CA9C000B044D7 /* XCRemoteSwiftPackageReference "PersonLib" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/codewinsdotcom/postgresclientkit.git";
+			repositoryURL = "https://github.com/odira/PersonLib.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		28DD0F16274973FA00850BB4 /* PostgresClientKit */ = {
+		2869806A278CA9C000B044D7 /* PersonLib */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 28DD0F15274973FA00850BB4 /* XCRemoteSwiftPackageReference "postgresclientkit" */;
-			productName = PostgresClientKit;
+			package = 28698069278CA9C000B044D7 /* XCRemoteSwiftPackageReference "PersonLib" */;
+			productName = PersonLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

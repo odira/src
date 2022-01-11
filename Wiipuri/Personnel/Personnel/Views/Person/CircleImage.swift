@@ -1,4 +1,5 @@
 import SwiftUI
+import Person
 
 struct CircleImage: View {
     var person: Person
@@ -30,8 +31,8 @@ struct CircleImage: View {
     }
 }
 
-struct CircleImage_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleImage(person: persons[0])
-    }
-}
+//struct CircleImage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CircleImage(person: persons[0])
+//    }
+//}

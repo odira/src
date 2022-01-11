@@ -1,4 +1,5 @@
 import SwiftUI
+import Person
 
 struct PersonList: View {
     @State private var showingSearchSheet = false
